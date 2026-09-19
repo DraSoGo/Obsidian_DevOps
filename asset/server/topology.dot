@@ -1,0 +1,72 @@
+digraph homelab {
+    graph [rankdir=TB, fontname="Sans", fontsize=12, bgcolor="white", splines=polyline, nodesep=0.45, ranksep=0.7];
+    node  [fontname="Sans", fontsize=11, style="filled,rounded", shape=box, margin="0.18,0.12"];
+    edge  [fontname="Sans", fontsize=9, color="#666666"];
+
+    /* ===== Internet / remote layer ===== */
+    internet [label="Internet", shape=circle, style=filled, fillcolor="#E8EAF6", color="#5C6BC0", width=1.1];
+    derper   [label="Tailscale DERP\n(coordination + relay)", shape=box, style="filled,dashed", fillcolor="#F5F5F5", color="#9E9E9E", fontsize=9];
+
+    /* ===== Outside devices ===== */
+    laptop [label="💻 Laptop\n(workstation, Ubuntu 24.04)", fillcolor="#E3F2FD", color="#1E88E5"];
+
+    subgraph cluster_lan {
+        label="Home LAN 192.168.1.0/24";
+        fontname="Sans";
+        fontsize=13;
+        style="rounded,dashed";
+        color="#81C784";
+        margin=16;
+
+        gw      [label="Router / Gateway\n192.168.1.1", fillcolor="#F1F8E9", color="#7CB342"];
+        tsnode  [label="Tailscale subnet router\n192.168.1.46\nadvertises 192.168.1.0/24", fillcolor="#FFF8E1", color="#F9A825"];
+
+        subgraph cluster_proxmox {
+            label="Proxmox host 192.168.1.47  (:8006)";
+            fontname="Sans"; fontsize=11; style="rounded"; color="#EF9A9A"; margin=12;
+            vm [label="hp800-g5 — Docker VM\nUbuntu 24.04 · 192.168.1.48\nfish + hermes + btop/lazydocker", fillcolor="#FFEBEE", color="#E53935"];
+        }
+
+        subgraph cluster_vm_services {
+            label="Docker compose projects — /srv/docker/apps/";
+            fontname="Sans"; fontsize=10; style="rounded"; color="#CE93D8"; margin=10;
+            node [shape=box, style="filled", fillcolor="#F3E5F5", color="#8E24AA", fontsize=9, margin="0.12,0.06"];
+
+            s_oj      [label="OJ :80\nweb · api · db · pgbouncer"];
+            s_paper   [label="Paperless-ngx :8000\nweb · db · redis · consumer"];
+            s_immich  [label="Immich :2283\nserver · ml · postgres · redis"];
+            s_next    [label="Nextcloud :8081\napp · db · redis · cron"];
+            s_fit     [label="Fitness (Django) :8095\nweb · worker · db"];
+            s_jenk    [label="Jenkins :8080"];
+            s_hermes  [label="Hermes bot :8096\nDiscord hub", fillcolor="#E1BEE7"];
+            s_mon     [label="Monitoring\nBeszel :8090 · Uptime Kuma :3001\nHomepage"];
+        }
+
+        nas [label="TrueNAS 192.168.1.38\nRAIDZ1 pool ~1.75 TiB\nSMB: immich · nextcloud ·\npaperless · server-backup", shape=box3d, style="filled", fillcolor="#E0F7FA", color="#00ACC1"];
+    }
+
+    /* ===== Edges ===== */
+    laptop -> derper [label="tailscale", style=dashed, color="#9E9E9E"];
+    laptop -> tsnode [label="tailscale\n(LAN route)", style=dashed, color="#F9A825"];
+    laptop -> gw [label="home wifi/lan"];
+
+    gw -> tsnode [dir=none];
+    gw -> vm [dir=none];
+    gw -> nas [dir=none];
+
+    vm -> s_oj [dir=none, style=dotted];
+    vm -> s_paper [dir=none, style=dotted];
+    vm -> s_immich [dir=none, style=dotted];
+    vm -> s_next [dir=none, style=dotted];
+    vm -> s_fit [dir=none, style=dotted];
+    vm -> s_jenk [dir=none, style=dotted];
+    vm -> s_hermes [dir=none, style=dotted];
+    vm -> s_mon [dir=none, style=dotted];
+
+    vm -> nas [label="CIFS mounts\n/mnt/*", color="#00ACC1"];
+    vm -> derper [label="tailscale\n100.107.242.72", style=dashed, color="#9E9E9E"];
+
+    /* layout: keep service row below VM */
+    { rank=same; s_oj; s_paper; s_immich; s_next; s_fit; s_jenk; s_hermes; s_mon; }
+    { rank=same; tsnode; vm; nas; }
+}
