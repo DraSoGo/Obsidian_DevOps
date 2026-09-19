@@ -29,9 +29,9 @@ This is Obsidian for Lecture about DevOps.
 
 ```text
 DevOps/
-├── Index.md              ← หน้ารวมทุกหัวข้อ + progress
-├── Basic_knowledge/      ← note พื้นฐาน (มีแล้ว)
-├── asset/                ← รูปประกอบทั้งหมด
+├── Index.md              ← topic index + progress
+├── Basic_knowledge/      ← foundation notes (already present)
+├── asset/                ← all images
 ├── Linux/
 ├── Shell_script/
 ├── Git/
@@ -48,4 +48,4 @@ DevOps/
 └── Interview/
 ```
 
-Folder ที่ยังไม่มี note จะถูกสร้างเมื่อเริ่มเรียนหัวข้อนั้น ๆ — ดูสถานะล่าสุดได้ที่ [Index.md](Index.md)
+Folders without notes yet are created when that topic starts — see the latest status in [Index.md](Index.md)

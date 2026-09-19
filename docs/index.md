@@ -1,7 +1,7 @@
 # 📘 DevOps Lecture Index
 
 !!! abstract
-    หน้ารวมหัวข้อสำหรับการเรียน DevOps ทั้งหมด — แต่ละหัวข้อเป็น folder ใหญ่ที่จะเติม note เข้าไปเรื่อย ๆ ตามที่เรียน
+    Topic index for the entire DevOps study — each topic is a major folder that gets filled with notes as the lectures progress.
 
 ## 🗂️ Main-Topic
 
@@ -56,8 +56,8 @@
 
 ## 🔄 How to update this page
 
-เมื่อมีหัวข้อใหม่เข้ามา:
-1. สร้าง folder ใหม่ใน vault ตามชื่อหัวข้อ
-2. เปลี่ยนบรรทัด `**ชื่อ** — *coming soon*` เป็นลิงก์ `**ชื่อ**`
-3. อัปเดตสถานะในตาราง Progress (🟢 In progress / 🟡 Draft / ✅ Done)
-4. Push ขึ้น GitHub — หน้าเว็บจะอัปเดตอัตโนมัติ
+When a new topic starts:
+1. Create the folder in the vault named after the topic
+2. Change the `**Name** — *coming soon*` line into a link `**Name**`
+3. Update the status in the Progress table (🟢 In progress / 🟡 Draft / ✅ Done)
+4. Push to GitHub — the website updates automatically
