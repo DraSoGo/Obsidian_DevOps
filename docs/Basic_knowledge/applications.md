@@ -1,21 +1,21 @@
 #app
 # Application Basics for DevOps
 
-> [!summary]
-> Understand how an application becomes a running service: identify its runtime, install dependencies, build and test it, package the result, then deploy and troubleshoot it. Based on the supplied KodeKloud lessons, with corrections to historical examples.
+!!! abstract
+    Understand how an application becomes a running service: identify its runtime, install dependencies, build and test it, package the result, then deploy and troubleshoot it. Based on the supplied KodeKloud lessons, with corrections to historical examples.
 
 ## Contents
 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+- [Application Lifecycle](#application-lifecycle)
+- [Source Code and Execution](#source-code-and-execution)
+- [Dependencies and Build Tools](#dependencies-and-build-tools)
+- [Java](#java)
+- [Node.js and npm](#nodejs-and-npm)
+- [Python and pip](#python-and-pip)
+- [Deployment and Troubleshooting](#deployment-and-troubleshooting)
+- [Quick Reference](#quick-reference)
+- [Original Lecture Images](#original-lecture-images)
+- [Sources](#sources)
 
 ## Application Lifecycle
 
@@ -381,28 +381,28 @@ Read the first relevant build or startup error before retrying. Distinguish a fa
 
 All 13 images from the supplied lessons are stored under `asset/applications/`. The two diagrams used above explain dependencies and Java packaging. The remaining screenshots appear below as optional reference; rankings, version lists, and installation screens are historical.
 
-> [!example]- Language overview and execution model
-> ![](../asset/applications/languages.jpg)
-> ![](../asset/applications/execution-models.jpg)
->
-> The compiled/interpreted split is simplified. Use the execution table above for Java bytecode, CPython, and Node.js details.
+!!! example "- Language overview and execution model"
+    ![](../asset/applications/languages.jpg)
+    ![](../asset/applications/execution-models.jpg)
 
-> [!example]- Java overview and runtime packaging
-> ![](../asset/applications/java-overview.jpg)
-> ![](../asset/applications/jdk-before-9.jpg)
-> ![](../asset/applications/jdk-after-9.jpg)
-> ![](../asset/applications/java-summary.jpg)
->
-> Runtime-only distribution options depend on the Java vendor and version.
+    The compiled/interpreted split is simplified. Use the execution table above for Java bytecode, CPython, and Node.js details.
 
-> [!example]- Node.js and early web applications
-> ![](../asset/applications/early-web.jpg)
-> ![](../asset/applications/node-overview.jpg)
-> ![](../asset/applications/node-installation.jpg)
+!!! example "- Java overview and runtime packaging"
+    ![](../asset/applications/java-overview.jpg)
+    ![](../asset/applications/jdk-before-9.jpg)
+    ![](../asset/applications/jdk-after-9.jpg)
+    ![](../asset/applications/java-summary.jpg)
 
-> [!example]- Python overview and historical download page
-> ![](../asset/applications/python-overview.jpg)
-> ![](../asset/applications/python-download.jpg)
+    Runtime-only distribution options depend on the Java vendor and version.
+
+!!! example "- Node.js and early web applications"
+    ![](../asset/applications/early-web.jpg)
+    ![](../asset/applications/node-overview.jpg)
+    ![](../asset/applications/node-installation.jpg)
+
+!!! example "- Python overview and historical download page"
+    ![](../asset/applications/python-overview.jpg)
+    ![](../asset/applications/python-download.jpg)
 
 ## Sources
 

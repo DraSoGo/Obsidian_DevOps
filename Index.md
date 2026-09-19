@@ -6,7 +6,7 @@
 ## 🗂️ Main-Topic
 
 ### 🧱 Foundation
-- **[[Basic_knowledge/Overview|Basic Knowledge]]** — Linux, Network, Applications, Home Server Runbook
+- **[[Basic_knowledge/linux|Basic Knowledge]]** — Linux, Network, Applications, Home Server Runbook
 - **Linux** — *coming soon*
 - **Shell Script** — *coming soon*
 - **Git** — *coming soon*

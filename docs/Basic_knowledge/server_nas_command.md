@@ -9,8 +9,8 @@ Command reference สำหรับดูแล home server ทั้ง farm �
 ![](../asset/server/topology.jpg)
 > topology ของ farm ทั้งก้อน
 
-> [!info] Aliases บน VM (`~/.config/fish/config.fish`)
-> `cat` → batcat · `top` → btop · `df` → duf · `dc` → docker compose · `dps` → docker ps แบบตาราง · `apps` → cd /srv/docker/apps · `hstat` → เช็ค Hermes health · `hb` → รัน Hermes backup
+!!! info "Aliases บน VM (`~/.config/fish/config.fish`)"
+    `cat` → batcat · `top` → btop · `df` → duf · `dc` → docker compose · `dps` → docker ps แบบตาราง · `apps` → cd /srv/docker/apps · `hstat` → เช็ค Hermes health · `hb` → รัน Hermes backup
 
 ![](../asset/server/fish-ghost.png)
 > fish บนเครื่องจริง — ghost text (สีเทา) คือคำแนะนำ กด `→` ยอม, dropdown completion กด `Tab`
@@ -109,7 +109,7 @@ docker compose down
 ```
 หยุด + ลบ containers แต่**คง named volumes** (ข้อมูล database ยังอยู่)
 
-> [!danger] อย่าพิมพ์ `-v` ต่อท้ายโดยไม่ตั้งใจ — `down -v` ลบ volumes รวมถึง PostgreSQL data ทั้งก้อน ให้ `docker volume ls` และแบ็กอัพก่อนเสมอ
+!!! danger "อย่าพิมพ์ `-v` ต่อท้ายโดยไม่ตั้งใจ — `down -v` ลบ volumes รวมถึง PostgreSQL data ทั้งก้อน ให้ `docker volume ls` และแบ็กอัพก่อนเสมอ"
 
 ## docker inspect
 ```bash
@@ -441,7 +441,7 @@ sudo /usr/local/sbin/backup-hermes.sh
 
 # High-Risk Commands
 
-> [!danger] เช็ค target, สถานะปัจจุบัน, และมี backup ที่ใช้ได้ก่อนรันทุกตัวในตารางนี้
+!!! danger "เช็ค target, สถานะปัจจุบัน, และมี backup ที่ใช้ได้ก่อนรันทุกตัวในตารางนี้"
 
 | Command | ความเสี่ยง | ทางปลอดภัยกว่า |
 |---|---|---|
@@ -458,4 +458,4 @@ Inspect → understand → change one thing → verify
 
 # Related Topics
 - [linux](../Basic_knowledge/linux.md/) — คำสั่ง Linux ทั่วไป
-- **Docker** — พื้นฐาน Docker
+- Docker — พื้นฐาน Docker

@@ -1,26 +1,26 @@
 #network 
 # Networking Fundamentals for DevOps
 
-> [!summary]
-> A practical guide to packet flow, addressing, routing, DNS, ports, HTTP, firewalls, and Linux network troubleshooting. The examples build on *Networking Basics* by Abhishek Dere and add concepts used in server, container, and cloud operations.
+!!! abstract
+    A practical guide to packet flow, addressing, routing, DNS, ports, HTTP, firewalls, and Linux network troubleshooting. The examples build on *Networking Basics* by Abhishek Dere and add concepts used in server, container, and cloud operations.
 
 ## Contents
 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+- [Network Mental Model](#network-mental-model)
+- [OSI and TCP-IP Layers](#osi-and-tcp-ip-layers)
+- [IPv4 Addressing and CIDR](#ipv4-addressing-and-cidr)
+- [Switching MAC Addresses and ARP](#switching-mac-addresses-and-arp)
+- [Routing and Gateways](#routing-and-gateways)
+- [DNS and Name Resolution](#dns-and-name-resolution)
+- [TCP UDP and Ports](#tcp-udp-and-ports)
+- [HTTP HTTPS and TLS](#http-https-and-tls)
+- [NAT and Firewalls](#nat-and-firewalls)
+- [Reverse Proxies and Load Balancers](#reverse-proxies-and-load-balancers)
+- [Containers and Kubernetes](#containers-and-kubernetes)
+- [Linux Network Configuration](#linux-network-configuration)
+- [Troubleshooting Workflow](#troubleshooting-workflow)
+- [Quick Reference](#quick-reference)
+- [Commands That Require Care](#commands-that-require-care)
 
 ## Network Mental Model
 
@@ -521,8 +521,8 @@ sudo firewall-cmd --list-all
 
 Check both directions. A request path may work while the return path uses a different route or hits a different rule.
 
-> [!warning]
-> Keep an existing SSH session open when changing remote firewall rules. Add the required management rule before enabling a default-deny policy.
+!!! warning
+    Keep an existing SSH session open when changing remote firewall rules. Add the required management rule before enabling a default-deny policy.
 
 ## Reverse Proxies and Load Balancers
 
@@ -785,8 +785,8 @@ This sequence distinguishes an application binding problem from host firewall, r
 
 ## Commands That Require Care
 
-> [!danger]
-> Network changes can disconnect a remote session or expose a service. Record the current configuration and keep an independent recovery path before changing routes, addresses, DNS, or firewalls.
+!!! danger
+    Network changes can disconnect a remote session or expose a service. Record the current configuration and keep an independent recovery path before changing routes, addresses, DNS, or firewalls.
 
 | Command or change | Risk | Safer approach |
 |---|---|---|

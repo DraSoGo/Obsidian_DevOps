@@ -1,25 +1,25 @@
 #linux
 # Linux Fundamentals for DevOps
 
-> [!summary]
-> A practical reference for Linux administration. Learn the filesystem, permissions, processes, services, networking, and shell tools instead of memorizing every command.
+!!! abstract
+    A practical reference for Linux administration. Learn the filesystem, permissions, processes, services, networking, and shell tools instead of memorizing every command.
 
 ## Contents
 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+- [Linux and the Shell](#linux-and-the-shell)
+- [Filesystem and Files](#filesystem-and-files)
+- [Command-Line Essentials](#command-line-essentials)
+- [Users and Permissions](#users-and-permissions)
+- [Processes and Jobs](#processes-and-jobs)
+- [Services and Systemd](#services-and-systemd)
+- [System Resources](#system-resources)
+- [Networking and Remote Access](#networking-and-remote-access)
+- [Packages and Archives](#packages-and-archives)
+- [Bash Scripting](#bash-scripting)
+- [Text Processing](#text-processing)
+- [Editors](#editors)
+- [Troubleshooting Workflow](#troubleshooting-workflow)
+- [Commands That Require Care](#commands-that-require-care)
 
 ## Linux and the Shell
 
@@ -94,8 +94,8 @@ rm file.txt
 rm -r directory/
 ```
 
-> [!danger]
-> `rm` does not use a recycle bin. Check the resolved path before using `rm -r` or `rm -rf`.
+!!! danger
+    `rm` does not use a recycle bin. Check the resolved path before using `rm -r` or `rm -rf`.
 
 ### Read files
 
@@ -402,8 +402,8 @@ WantedBy=multi-user.target
 
 `ExecStartPre` and `ExecStartPost` are optional. Their scripts must exist, be executable, and return exit status `0`; otherwise systemd marks the service as failed. Remove either directive when the application does not need it.
 
-> [!note]
-> Python's built-in development server is suitable for learning and local testing. Use a production WSGI server such as Gunicorn for an Internet-facing application.
+!!! note
+    Python's built-in development server is suitable for learning and local testing. Use a production WSGI server such as Gunicorn for an Internet-facing application.
 
 #### Validate and start
 
@@ -642,7 +642,7 @@ set -euo pipefail
 readonly SOURCE="${1:?Usage: $0 SOURCE}"
 readonly DESTINATION="${2:?Usage: $0 SOURCE DESTINATION}"
 
-if **! -d "$SOURCE"**; then
+if ! -d "$SOURCE"; then
   echo "Source directory not found: $SOURCE" >&2
   exit 1
 fi
@@ -665,9 +665,9 @@ chmod +x script.sh
 | `$$` | Current shell PID |
 
 ```bash
-if **-f "$FILE"**; then
+if -f "$FILE"; then
   echo "File exists"
-elif **-d "$FILE"**; then
+elif -d "$FILE"; then
   echo "Directory exists"
 else
   echo "Path not found" >&2
@@ -772,8 +772,8 @@ ping -c 4 example.com
 
 ## Commands That Require Care
 
-> [!danger]
-> Inspect variables, wildcards, paths, and current state before running commands that delete data or interrupt services.
+!!! danger
+    Inspect variables, wildcards, paths, and current state before running commands that delete data or interrupt services.
 
 | Command | Risk |
 |---|---|
@@ -792,4 +792,4 @@ Before pressing Enter:
 - Use `rsync --dry-run` or another preview option when available.
 - Confirm that a current backup can be restored.
 
-Continue with Git, Docker, CI/CD, infrastructure as code, observability, and cloud platforms. Server-specific commands for this vault are in **server_nas_command**.
+Continue with Git, Docker, CI/CD, infrastructure as code, observability, and cloud platforms. Server-specific commands for this vault are in server_nas_command.
