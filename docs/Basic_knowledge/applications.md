@@ -1,4 +1,4 @@
-#app
+*Tags: `#app`*
 # Application Basics for DevOps
 
 !!! abstract

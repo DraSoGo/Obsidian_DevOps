@@ -111,7 +111,34 @@ def rewrite_callouts(text: str) -> str:
     return "\n".join(out)
 
 
+# Obsidian tag-only line: "#network #docker #linux" (no space after #, so
+# never matches markdown headings like "# What")
+TAG_LINE = re.compile(r"^(\s*)((?:#[\w/-]+)(?:\s+#[\w/-]+)*\s*)$")
+
+
+def rewrite_tags(text: str) -> str:
+    """Convert Obsidian tag lines into a small italic 'Tags:' line.
+
+    python-markdown treats '#tag' (no space) as an H1, which breaks the page.
+    Skips fenced code blocks so shell comments are never touched.
+    """
+    out: list[str] = []
+    in_fence = False
+    for line in text.split("\n"):
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            out.append(line)
+            continue
+        if not in_fence and (m := TAG_LINE.match(line)):
+            tags = m.group(2).split()
+            out.append(m.group(1) + "*Tags: " + " ".join(f"`{t}`" for t in tags) + "*")
+            continue
+        out.append(line)
+    return "\n".join(out)
+
+
 def rewrite(text: str) -> str:
+    text = rewrite_tags(text)
     text = rewrite_links(text)
     text = rewrite_callouts(text)
     return text

@@ -1,4 +1,4 @@
-#network 
+*Tags: `#network`*
 # Networking Fundamentals for DevOps
 
 !!! abstract

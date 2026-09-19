@@ -1,4 +1,4 @@
-#linux
+*Tags: `#linux`*
 # Linux Fundamentals for DevOps
 
 !!! abstract

@@ -1,4 +1,4 @@
-#network #docker #server #devops #linux 
+*Tags: `#network` `#docker` `#server` `#devops` `#linux`*
 
 # What
 Command reference for running the home server farm — Ubuntu Docker VM (`192.168.1.48`), Proxmox (`192.168.1.47`), TrueNAS (`192.168.1.38`), Tailscale router (`192.168.1.46`) — the shell on the VM is fish (ghost text + `Ctrl+R` fuzzy history search). See [linux](../Basic_knowledge/linux.md/) for general commands.
