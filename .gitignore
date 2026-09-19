@@ -1,3 +1,5 @@
 .obsidian/
 *.tmp
 .DS_Store
+site/
+__pycache__/

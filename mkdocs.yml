@@ -1,0 +1,57 @@
+site_name: DevOps Lecture
+site_description: 📘 DevOps lecture notes — Linux, Docker, Kubernetes, CI/CD and more
+site_url: https://drasogo.github.io/Obsidian_DevOps/
+repo_url: https://github.com/DraSoGo/Obsidian_DevOps
+repo_name: DraSoGo/Obsidian_DevOps
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+
+markdown_extensions:
+  - admonition        # obsidian callouts > [!info]
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - scripts/gen_pages.py
+
+nav:
+  - Home: index.md
+  - Basic Knowledge:
+      - Linux: Basic_knowledge/linux.md
+      - Network: Basic_knowledge/network.md
+      - Applications: Basic_knowledge/applications.md
+      - Home Server Runbook: Basic_knowledge/server_nas_command.md
